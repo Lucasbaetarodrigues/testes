@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite Interativo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="main-container">
+    <input type="text" id="nome" placeholder="Digite seu nome" />
+    <button onclick="buscarFamilia()">Buscar</button>
+
+    <div id="familia-container" style="display: none;">
+      <form id="familiaForm"></form>
+      <button onclick="confirmarPresenca()">Confirmar Presença</button>
+    </div>
+
+    <div id="mensagem-sucesso" style="display: none;">Presença confirmada com sucesso!</div>
+
+    <div class="botoes-secundarios">
+      <button onclick="mostrarImagem('2.jpg')">Ver Convite</button>
+      <button onclick="mostrarImagem('3.jpg')">Ver Informações da Festa</button>
+      <button onclick="mostrarImagem('4.jpg')">Combinado e Cardápio</button>
+    </div>
+  </div>
+
+  <div id="imagem-container" style="display: none;">
+    <img id="imagem-exibida" src="" alt="Imagem" class="imagem-full" />
+    <button onclick="voltarTelaInicial()">Voltar</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
