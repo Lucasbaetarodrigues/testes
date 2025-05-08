@@ -1,3 +1,4 @@
+/* Estilo básico do corpo */
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@ body {
   align-items: start;
 }
 
+/* Container principal */
 #main-container {
   display: flex;
   flex-direction: column;
@@ -23,13 +25,18 @@ body {
   margin-top: 450px;
 }
 
+/* Caixa de texto mais larga e alta */
 #nome {
   padding: 10px;
-  width: 250px;
+  width: 90%;
+  max-width: 500px;
+  height: 45px;
+  font-size: 16px;
   border-radius: 10px;
   border: 1px solid #ccc;
 }
 
+/* Estilo padrão dos botões */
 button {
   padding: 10px 20px;
   border: none;
@@ -43,19 +50,43 @@ button:hover {
   background-color: #a56f6f;
 }
 
+/* Labels de familiares */
 #familiaForm label {
   display: block;
   margin: 5px 0;
 }
 
-.botoes-secundarios {
-  margin-top: 20px;
+/* Botões lado a lado */
+.botoes-imagens {
   display: flex;
-  flex-direction: column;
   gap: 10px;
-  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* Botão de mapa abaixo */
+.botao-mapa {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.botao-mapa button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao-mapa button:hover {
+  background-color: #0056b3;
+}
+
+/* Tela de imagem fullscreen */
 #imagem-container {
   position: fixed;
   top: 0;
@@ -70,13 +101,15 @@ button:hover {
   z-index: 9999;
 }
 
+/* Imagem exibida */
 .imagem-full {
   width: 100vw;
   height: 100vh;
   object-fit: contain;
 }
 
-#imagem-container button {
+/* Botão de voltar no canto superior esquerdo */
+#btn-voltar {
   position: absolute;
   top: 20px;
   left: 20px;

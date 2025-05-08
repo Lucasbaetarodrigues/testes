@@ -1,35 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convite Interativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="main-container">
+    <!-- Caixa de texto para inserir o nome -->
     <input type="text" id="nome" placeholder="Digite seu nome" />
     <button onclick="buscarFamilia()">Buscar</button>
 
+    <!-- Formulário exibido somente se a pessoa estiver na lista -->
     <div id="familia-container" style="display: none;">
       <form id="familiaForm"></form>
       <button onclick="confirmarPresenca()">Confirmar Presença</button>
     </div>
 
-    <div id="mensagem-sucesso" style="display: none;">Presença confirmada com sucesso!</div>
+    <!-- Mensagem de sucesso após confirmação -->
+    <div id="mensagem-sucesso" style="display: none;">
+      <p>Presença confirmada com sucesso!</p>
+    </div>
 
-    <div class="botoes-secundarios">
-      <button onclick="mostrarImagem('2.jpg')">Ver Convite</button>
-      <button onclick="mostrarImagem('3.jpg')">Ver Informações da Festa</button>
-      <button onclick="mostrarImagem('4.jpg')">Combinado e Cardápio</button>
+    <!-- Botões lado a lado: convite e cardápio -->
+    <div class="botoes-imagens">
+      <button onclick="mostrarImagem('2.jpg')">Convite Impresso</button>
+      <button onclick="mostrarImagem('3.jpg')">Combinados e Cardápio</button>
+    </div>
+
+    <!-- Botão para abrir o mapa do local da festa -->
+    <div class="botao-mapa">
+      <button onclick="abrirMapa()">Ver Local da Festa</button>
     </div>
   </div>
 
+  <!-- Tela de imagem fullscreen -->
   <div id="imagem-container" style="display: none;">
-    <img id="imagem-exibida" src="" alt="Imagem" class="imagem-full" />
-    <button onclick="voltarTelaInicial()">Voltar</button>
+    <button id="btn-voltar" onclick="voltarTelaInicial()">⬅ Voltar</button>
+    <img id="imagem-exibida" class="imagem-full" src="" alt="Imagem" />
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
+</html
