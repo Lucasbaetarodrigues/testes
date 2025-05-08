@@ -102,5 +102,5 @@ function voltarTelaInicial() {
 
 // Abre link do Google Maps
 function abrirMapa() {
-  window.open("https://www.google.com/maps/place/SUA_LOCALIZACAO_AQUI", "_blank");
+  window.open("https://www.google.com/maps/dir//alameda+dos+jacarand%C3%A1s,+715+port%C3%B5es+35450-000,+Itabirito+-+MG,+35450-000/@-20.2151141,-43.8584059,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xa402018edcba23:0x9f8dade8755f286d!2m2!1d-43.7760091!2d-20.2151384?entry=ttu&g_ep=EgoyMDI1MDUwNS4wIKXMDSoASAFQAw%3D%3D", "_blank");
 }
