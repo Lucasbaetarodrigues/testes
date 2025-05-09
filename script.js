@@ -1,10 +1,8 @@
 let convidados = [];
 let familiaAtual = [];
 
-// URL da API do Google Sheets
 const API_URL = 'https://script.google.com/macros/s/AKfycbz-I7Hh-AQoZiNVAW3kzzPuzmCykIQPY8363KdIk9A-UBaZoemdeVM_F19PgsJQtw8T/exec';
 
-// Função que busca nome na planilha
 async function buscarFamilia() {
   const nomeDigitado = document.getElementById('nome').value.trim().toLowerCase();
   if (!nomeDigitado) {
@@ -37,7 +35,6 @@ async function buscarFamilia() {
   }
 }
 
-// Exibe os checkboxes com os nomes da família
 function mostrarCheckboxes(membros) {
   const form = document.getElementById('familiaForm');
   form.innerHTML = '';
@@ -55,7 +52,6 @@ function mostrarCheckboxes(membros) {
   document.getElementById('mensagem-sucesso').style.display = 'none';
 }
 
-// Envia confirmação de presença
 async function confirmarPresenca() {
   const selecionados = Array.from(document.querySelectorAll('#familiaForm input[type="checkbox"]:checked')).map(cb => cb.value);
   if (selecionados.length === 0) {
@@ -81,26 +77,44 @@ async function confirmarPresenca() {
   }
 }
 
-// Remove acentos para facilitar comparação de nomes
 function removerAcentos(texto) {
   return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-// Exibe uma imagem em tela cheia
 function mostrarImagem(nomeArquivo) {
+  const container = document.getElementById('imagem-container');
   document.getElementById('main-container').style.display = 'none';
-  const imagem = document.getElementById('imagem-exibida');
-  imagem.src = nomeArquivo;
-  document.getElementById('imagem-container').style.display = 'flex';
+
+  if (nomeArquivo === 'combinados') {
+    container.innerHTML = `
+      <button onclick="voltarTelaInicial()" style="position:absolute;top:20px;left:20px;">⬅ Voltar</button>
+      <button onclick="mostrarCardapio()" style="position:absolute;top:20px;right:20px;">🍽️ Cardápio</button>
+      <img class="imagem-full" src="3.jpg" alt="Combinados" />
+    `;
+  } else {
+    container.innerHTML = `
+      <button onclick="voltarTelaInicial()" style="position:absolute;top:20px;left:20px;">⬅ Voltar</button>
+      <img class="imagem-full" src="${nomeArquivo}" alt="Imagem" />
+    `;
+  }
+
+  container.style.display = 'flex';
 }
 
-// Volta para a tela principal
+function mostrarCardapio() {
+  const container = document.getElementById('imagem-container');
+  container.innerHTML = `
+    <button onclick="voltarTelaInicial()" style="position:absolute;top:20px;left:20px;">⬅ Voltar</button>
+    <button onclick="mostrarImagem('combinados')" style="position:absolute;top:20px;right:20px;">↩️ Combinados</button>
+    <img class="imagem-full" src="4.jpg" alt="Cardápio" />
+  `;
+}
+
 function voltarTelaInicial() {
   document.getElementById('imagem-container').style.display = 'none';
   document.getElementById('main-container').style.display = 'flex';
 }
 
-// Abre link do Google Maps
 function abrirMapa() {
-  window.open("https://www.google.com/maps/dir//alameda+dos+jacarand%C3%A1s,+715+port%C3%B5es+35450-000,+Itabirito+-+MG,+35450-000/@-20.2151141,-43.8584059,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xa402018edcba23:0x9f8dade8755f286d!2m2!1d-43.7760091!2d-20.2151384?entry=ttu&g_ep=EgoyMDI1MDUwNS4wIKXMDSoASAFQAw%3D%3D", "_blank");
+  window.open("https://www.google.com/maps/place/SUA_LOCALIZACAO_AQUI", "_blank");
 }

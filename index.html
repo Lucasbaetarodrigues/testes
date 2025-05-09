@@ -8,39 +8,30 @@
 </head>
 <body>
   <div id="main-container">
-    <!-- Caixa de texto para inserir o nome -->
     <input type="text" id="nome" placeholder="Digite seu nome" />
     <button onclick="buscarFamilia()">Buscar</button>
 
-    <!-- Formulário exibido somente se a pessoa estiver na lista -->
     <div id="familia-container" style="display: none;">
       <form id="familiaForm"></form>
       <button onclick="confirmarPresenca()">Confirmar Presença</button>
     </div>
 
-    <!-- Mensagem de sucesso após confirmação -->
     <div id="mensagem-sucesso" style="display: none;">
       <p>Presença confirmada com sucesso!</p>
     </div>
 
-    <!-- Botões lado a lado: convite e cardápio -->
     <div class="botoes-imagens">
       <button onclick="mostrarImagem('2.jpg')">Convite Impresso</button>
-      <button onclick="mostrarImagem('3.jpg')">Combinados e Cardápio</button>
+      <button onclick="mostrarImagem('combinados')">Combinados e Cardápio</button>
     </div>
 
-    <!-- Botão para abrir o mapa do local da festa -->
     <div class="botao-mapa">
       <button onclick="abrirMapa()">Ver Local da Festa</button>
     </div>
   </div>
 
-  <!-- Tela de imagem fullscreen -->
-  <div id="imagem-container" style="display: none;">
-    <button id="btn-voltar" onclick="voltarTelaInicial()">⬅ Voltar</button>
-    <img id="imagem-exibida" class="imagem-full" src="" alt="Imagem" />
-  </div>
+  <div id="imagem-container" style="display: none;"></div>
 
   <script src="script.js"></script>
 </body>
-</html
+</html>
